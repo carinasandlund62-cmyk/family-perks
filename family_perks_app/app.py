@@ -763,9 +763,164 @@ if view == "Consumer view":
 
     st.markdown("""
     <style>
-    .block-container {
-        max-width: 680px;
+
+    @media (min-width: 768px) {
+
+        /* Background surrounding the iPhone */
+        .stApp {
+            background: #EEF1ED;
+        }
+
+        [data-testid="stHeader"] {
+            background: #EEF1ED;
+        }
+
+        /* iPhone body */
+        .block-container {
+            max-width: 430px !important;
+            height: 820px !important;
+min-height: 0 !important;
+max-height: 85vh !important;
+overflow: hidden !important;
+            margin: 25px auto !important;
+            padding: 65px 18px 45px !important;
+            background: #DFEDDF;
+            border: 10px solid #202522;
+            border-radius: 48px;
+            box-shadow:
+                0 0 0 2px #747B75,
+                0 20px 50px #00000025;
+            position: relative;
+            box-sizing: border-box;
+        }
+/* Scrollable iPhone screen */
+.block-container > [data-testid="stVerticalBlock"] {
+    height: 100% !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: none;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* Hide scrollbar for a realistic phone appearance */
+.block-container > [data-testid="stVerticalBlock"]::-webkit-scrollbar {
+    display: none;
+}
+        /* Dynamic Island */
+        .block-container::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 28px;
+            background: #111111;
+            border-radius: 22px;
+            z-index: 100;
+        }
+
+
+
+        /* Phone-sized headings */
+        .stApp h1 {
+            font-size: 26px !important;
+        }
+
+        .stApp h2 {
+            font-size: 21px !important;
+        }
+
+        .stApp h3 {
+            font-size: 17px !important;
+        }
+
+        /* Compact cards */
+        .hero {
+            padding: 18px;
+            border-radius: 20px;
+        }
+
+        .card, .reward, .receipt {
+            padding: 15px;
+            border-radius: 18px;
+        }
+
+        /* Compact statistics */
+        [data-testid="stMetric"] {
+            padding: 12px;
+            min-width: 0;
+        }
+
+        [data-testid="stMetricValue"] {
+            font-size: 21px !important;
+        }
+
+        [data-testid="stMetricLabel"] {
+            font-size: 11px !important;
+        }
+
+        /* Compact navigation */
+        [data-testid="stHorizontalBlock"] {
+            gap: 5px !important;
+        }
+
+        [data-testid="stColumn"] {
+            min-width: 0 !important;
+        }
+
+        .stButton > button {
+            padding: 7px 3px !important;
+            min-height: 42px;
+            border-radius: 12px;
+        }
+
+        .stButton > button p {
+            font-size: 11px !important;
+        }
+
+        /* Compact loyalty card */
+        .wallet {
+            padding: 18px;
+            border-radius: 22px;
+        }
+
+        .wallet-code {
+            padding: 12px;
+        }
+
+        /* Compact charts */
+        [data-testid="stVegaLiteChart"] {
+            padding: 5px;
+            border-radius: 15px;
+        }
+
+        .product-name {
+            font-size: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        .product-count {
+            font-size: 10px;
+        }
+
+        .receipt-row {
+            font-size: 12px;
+        }
     }
+
+    /* Actual mobile phones */
+    @media (max-width: 767px) {
+
+        .block-container {
+            max-width: 100% !important;
+            border: none;
+            padding: 15px !important;
+        }
+    }
+
     </style>
     """, unsafe_allow_html=True)
 
